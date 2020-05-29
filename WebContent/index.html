@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Sistema de Administración de Ventas</title>
+<style type="text/css">
+<!--
+body {
+	background-color: #FFFF99;
+}
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.Estilo1 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.Estilo2 {color: #FFFFFF}
+-->
+</style></head>
+
+<body>
+<table width="800" height="182" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr align="center" bgcolor="#FF0000">
+    <td colspan="2" bgcolor="#993300"><h2><span class="Estilo1">Inicio de Sesion</span></h2></td>
+  </tr>
+  <tr>
+    <td width="175" height="126"><img src="includes/img/porrin.png" alt="libros" width="270" height="126" /></td>
+    <td width="625">
+    <form name="frmPrincipal" method="post" action="SVerificaUsuario">
+    <table width="620" border="0" cellspacing="3" cellpadding="0">
+      <tr>
+        <td width="131" align="right">Usuario</td>
+        <td width="489"><input type="text" name="txtUsuario" id="txtUsuario" /></td>
+      </tr>
+      <tr>
+        <td align="right">Clave</td>
+        <td><input type="password" name="txtClave" id="txtClave" /></td>
+        <td><input type="hidden" name="action" value="login" id="action"/></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" name="btnEntrar" id="btnEntrar" value="Entrar" /></td>
+          
+      </tr>
+    </table>
+    </form>
+    
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#993300">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
