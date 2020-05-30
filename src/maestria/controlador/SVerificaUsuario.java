@@ -56,8 +56,10 @@ public class SVerificaUsuario extends HttpServlet {
 					 
 			   }else if(action.equals("delete")){
 				   
-				   int eliminar = Integer.parseInt(request.getParameter("eliminar"));
+				   int eliminar = Integer.parseInt(request.getParameter("id"));
 				  
+				   System.out.print(eliminar);
+				   
 				   IUsuario d=(IUsuario) Fabrica.getInstancia("USUARIOS");
    	        	if( d.eliminarUsuario(eliminar)) {
    	        		
@@ -73,7 +75,7 @@ public class SVerificaUsuario extends HttpServlet {
 	    	         String username=request.getParameter("txtusername");
 	    	         String clave=request.getParameter("txtclave");
 	    	         int privilegio=Integer.parseInt(request.getParameter("txtprivilegio"));
-				   IUsuario d=(IUsuario) Fabrica.getInstancia("USUARIO");
+				   IUsuario d=(IUsuario) Fabrica.getInstancia("USUARIOS");
 				   
 				   if(d.editarUsuario(_ID, username, clave, privilegio)==true) {
 					   response.setStatus(HttpServletResponse.SC_OK);

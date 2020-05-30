@@ -186,14 +186,14 @@ public class UsuariosDAO implements IUsuario{
 	      {
 	         con = (Connection) UConnection.getConnection();
 	         
-	         String sql = "UPDATE usuario SET ID = ? WHERE username = ?  WHERE clave = ? WHERE privilegio= ?\"";
+	         String sql = "UPDATE usuario SET   username = ?, clave = ? , privilegio= ? WHERE ID = ?";
 	         
 	         pstm = (PreparedStatement) con.prepareStatement(sql);
 	         
-	         pstm.setInt(1,_ID);
-	         pstm.setString(2,username);
-	         pstm.setString(3,clave);
-	         pstm.setInt(4,privilegio);
+	         pstm.setInt(4,_ID);
+	         pstm.setString(1,username);
+	         pstm.setString(2,clave);
+	         pstm.setInt(3,privilegio);
 	         
 	         
 	         if(pstm.executeUpdate()==1)

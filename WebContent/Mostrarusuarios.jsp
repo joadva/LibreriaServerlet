@@ -1,3 +1,4 @@
+<%@page import="com.google.gson.Gson"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
@@ -51,7 +52,7 @@ if (sesion.getAttribute("usuario") == null) {
 			</div>
 
 			<ul class="navbar-nav">
-				<li><a href="./nose.libros"
+				<li><a href="MenuAdministrador.jsp"
 					class="nav-link">Volver</a></li>
 			</ul>
 		</nav>
@@ -85,23 +86,25 @@ if (sesion.getAttribute("usuario") == null) {
            if(resultado==null){
 				out.println("No hay Registros");
 			}else{
-            for(UsuariosDTO registro:resultado){
+            for(UsuariosDTO registro:resultado   ){
+            	Gson json = new Gson();
+            	String jSoN = json.toJson(registro);
           %>
-          <tr>
+          <tr class="padre">
         
-            <td align="right" valign="top"><%=registro.getID() %></td>
-            <td align="right" valign="top"><%=registro.getUsername() %></td>
-             <td align="right" valign="top"><%=registro.getClave() %></td>
-             <td align="right" valign="top"><%=registro.getPrivilegio() %></td>
+            <td   class="hijo" align="right" valign="top"><%=registro.getID() %></td>
+            <td class="hijo" align="right" valign="top"><%=registro.getUsername() %></td>
+             <td class="hijo" align="right" valign="top"><%=registro.getClave() %></td>
+             <td class="hijo"  align="right" valign="top"><%=registro.getPrivilegio() %></td>
            
              <td>
              
-               <a type="button"  data-target="#myModal" data-toggle="modal"  value='<%=registro.getID() %>' />Editar</a>
+               <a type="button"  data-target="#myModal" data-toggle="modal"   onclick="openuser( '<%=registro.getID() %>','<%=registro.getUsername() %>','<%=registro.getClave() %>' ,'<%=registro.getPrivilegio() %>')" />Editar</a>
               
                
                <input  type="hidden"  name="action"  value="delete"  />
              
-					<a type="button" onclick="eliminar(<%=registro.getID() %>,1)"  >Eliminar</a>
+					<a type="button" onclick="eliminar(<%=registro.getID() %>,1)">Eliminar</a>
 		
 					</td>
 						</tr>            

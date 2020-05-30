@@ -52,7 +52,7 @@ if (sesion.getAttribute("usuario") == null) {
 			</div>
 
 			<ul class="navbar-nav">
-				<li><a href="./nose.libros"
+				<li><a href="MenuAdministrador.jsp"
 					class="nav-link">Volver</a></li>
 			</ul>
 		</nav>
@@ -67,7 +67,7 @@ if (sesion.getAttribute("usuario") == null) {
 			<hr>
 			<div class="container text-left">
 
-				<a href="<%=request.getContextPath()%>/new" class="btn btn-success">agrega nuevo libros</a>
+				<a href="Agregarlibro.jsp" class="btn btn-success">agrega nuevo libros</a>
 			</div>
 			<br>
 			<table class="table table-bordered">
@@ -99,7 +99,7 @@ if (sesion.getAttribute("usuario") == null) {
            
              <td>
              
-               <a type="button"  data-target="#myModal" data-toggle="modal"  value='<%=registro.getId() %>'">Editar</a>
+               <a type="button"  data-target="#myModal" data-toggle="modal" onclick="openlibro('<%=registro.getId() %>','<%=registro.getName() %>','<%=registro.getAño() %>','<%=registro.getAutor() %>','<%=registro.getEditorial()%>' )">Editar</a>
               
                
                <input  type="hidden"  name="action"  value="delete"  />
@@ -130,22 +130,30 @@ if (sesion.getAttribute("usuario") == null) {
         
         <!-- Modal body -->
         <div class="modal-body">
-          <form name="" method="POST">
-          
-          
-          <input   type="text"  value="">
-                    <input   type="text" value="">
-          
-                    <input   type="text" value="">
-          
-                    <input   type="text"  value="">
-          
-          
-          
-          
-          
-          
-          </form>
+         <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+       
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+         <form class="form-inline" id="agregar" name="agregar"   >
+          <label >ID : </label>
+    <input type="text" class="form-control" id="id" placeholder="" name="id">
+    <label >name : </label>
+    <input type="text" class="form-control" id="name" placeholder="" name="name">
+    <p>
+    <label >año:</label>
+    <input type="text" class="form-control" id="año" placeholder="" name="año">
+    <label >autor:</label>
+    <input type="text" class="form-control" id="autor" placeholder="" name="autor">
+    <label for="pwd">editorial:</label>
+    <input type="text" class="form-control" id="editorial" placeholder="" name="editorial">
+   
+   
+    <button type="button" class="btn btn-primary" onclick="UpdateLibro()" >Submit</button>
+  </form>
         </div>
         
         <!-- Modal footer -->

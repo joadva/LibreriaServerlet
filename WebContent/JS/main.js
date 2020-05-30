@@ -5,8 +5,8 @@ function eliminar(ID,elimina){
 	console.log(ID);
 console.log(elimina);
 	switch (elimina){
-		case "1":
-	$.post( 'SVerificaUsuario', {eliminar: ID, action:"delete"}, 
+		case 1:
+			$.post( 'SVerificaUsuario', {id: ID, action:"delete"}, 
 					
 					function (res,status) {
 						
@@ -63,67 +63,169 @@ function modificar(ID){
 
 
 
-function Agregar(){
-
-	var id= $('#id').val();
-	var username= $('#username').val();
-	var clave= $('#clave').val();
-	var prioridad= $('#prioridad').val();
-	console.log(username);
+function Agregar(agrega){
+	 console.log(agrega);
 	
-	$.post('SVerificaUsuario', 
-			{
-				id: id,
-				username:username,
-				clave:clave,
-				prioridad:prioridad,
-				action: "create"
-			}, 
-			
+	switch(agrega){
+	
+	
+	case 1:
+		var id= $('#id').val();
+		var username= $('#username').val();
+		var clave= $('#clave').val();
+		var prioridad= $('#prioridad').val();
+		console.log(username);
+		
+		$.post('SVerificaUsuario', 
+				{
+					id: id,
+					username:username,
+					clave:clave,
+					prioridad:prioridad,
+					action: "create"
+				}, 
 				
+					
 
+				function (res,status) {
+					
+					if (status == "success" ){
+					
+						alert("Se Agrego el usuario ");
+						
+				location.reload();
+							
+					} else {
+						
+						alert("no se Agrego");
+					}
+					});
+		
+	case 2:
+		
+		var id= $('#id').val();
+		var name= $('#name').val();
+		var año= $('#año').val();
+		var autor= $('#autor').val();
+		var editorial= $('#editorial').val();
+		console.log(name);
+		
+		$.post('SLibro', 
+				{
+				
+					name:name,
+					año:año,
+					autor:autor,
+					editorial:editorial,
+					action: "create"
+				}, 
+				
+					
+
+				function (res,status) {
+					
+					if (status == "success" ){
+					
+						alert("Se Agrego el libro ");
+						
+				location.reload();
+							
+					} else {
+						
+						alert("no se Agrego");
+					}
+					});
+	}
+
+
+	
+}
+
+
+
+
+function openlibro(id,name,año,autor,editorial){
+	
+	var id =$('#id').val(id);
+	var name=$('#name').val(name);
+	var año=$('#año').val(año);
+	var autor=$('#autor').val(autor);
+	var editorial=$('#editorial').val(editorial);
+}
+
+
+function UpdateLibro() {
+	
+	var id =$('#id').val();
+	var name= $('#name').val();
+	var año= $('#año').val();
+	var autor= $('#autor').val();
+	var editorial= $('#editorial').val();
+	
+	$.post('SLibro', 
+			{
+				ID:id,
+				txtname:name,
+				txtaño:año,
+				txtautor:autor,
+				txteditorial:editorial,
+				action: "update"
+			}, 
+						
 			function (res,status) {
 				
 				if (status == "success" ){
 				
-					alert("Se Agrego el usuario ");
+					alert("Se actualizo el libro ");
 					
 			location.reload();
 						
 				} else {
 					
-					alert("no se Agrego");
+					alert("no se actualizo");
 				}
 				});
+
 	
 }
-function Update(){
 
+
+function openuser(id,username,clave,privilegio){
+    
+	var id= $('#id').val(id);
+	var usernae= $('#username').val(username);
+	var clave= $('#clave').val(clave);
+	var prioridad= $('#prioridad').val(privilegio);
+	//console.log(username);
+	
+}
+
+function Update() {
 	var id= $('#id').val();
 	var username= $('#username').val();
 	var clave= $('#clave').val();
 	var prioridad= $('#prioridad').val();
-	console.log(username);
+	
+	//console.log(clave);
 	
 	$.post('SVerificaUsuario', 
 			{
-				id: id,
-				username:username,
-				clave:clave,
-				prioridad:prioridad,
+				ID: id,
+				txtusername:username,
+				txtclave:clave,
+				txtprivilegio:prioridad,
 				action: "update"
 			}, 
 			function (res,status) {
 				
 				if (status == "success" ){				
-					alert("Se Agrego el usuario ");	
+					alert("Se actualizo el usuario ");	
 			location.reload();
 				} else {
-					alert("no se Agrego");
+					alert("no se actualizo");
 				}
 				});
 
 
 	
 }
-

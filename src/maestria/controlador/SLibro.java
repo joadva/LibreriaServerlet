@@ -43,7 +43,7 @@ public class SLibro extends HttpServlet{
     	         String año=request.getParameter("año");
     	         String autor=request.getParameter("autor");
     	         String editorial=request.getParameter("editorial");
-				 ILibros d=(ILibros) Fabrica.getInstancia("libro");
+				 ILibros d=(ILibros) Fabrica.getInstancia("LIBROS");
    				 if(d.guardarLibro( name, año, autor, editorial)==true){
 					 response.sendRedirect("MenuCliente.jsp");
 				 }else{
@@ -70,7 +70,7 @@ public class SLibro extends HttpServlet{
 	    	         String autor=request.getParameter("txtautor");
 	    	         String año=request.getParameter("txtaño");
 	    	         String editorial=request.getParameter("txteditorial");
-				   ILibros d=(ILibros) Fabrica.getInstancia("libro");
+				   ILibros d=(ILibros) Fabrica.getInstancia("LIBROS");
 				   
 				   if(d.editarLibro(id, name, año, autor, editorial) ==true) {
 					   response.setStatus(HttpServletResponse.SC_OK);

@@ -26,7 +26,7 @@ public   class LibrosDAO implements ILibros{
 	      {
 	         con = (Connection) UConnection.getConnection();
 	         
-	         String sql = "INSERT INTO libros( name, año, editorial) VALUES(?,?,?,?)";
+	         String sql = "INSERT INTO libros( name, año,autor ,editorial) VALUES(?,?,?,?)";
 	         
 	         pstm = (PreparedStatement) con.prepareStatement(sql);
 	         
@@ -113,13 +113,14 @@ public   class LibrosDAO implements ILibros{
 	      {
 	         con = (Connection) UConnection.getConnection();
 	         
-	         String sql = "UPDATE libros SET id, name, año, editorial where id = ? ";
+	         String sql = "UPDATE libros SET name = ?, año=?,  autor=?, editorial=? where id = ? ";
 	         
 	         pstm = (PreparedStatement) con.prepareStatement(sql);
 	         
-	         pstm.setInt(1,id);
-	         pstm.setString(2,name);
-	         pstm.setString(3,año);
+	         pstm.setInt(5,id);
+	         pstm.setString(1,name);
+	         pstm.setString(2,año);
+	         pstm.setString(3,autor);
 	         pstm.setString(4,editorial);
 	         
 	         if(pstm.executeUpdate()==1)
