@@ -50,19 +50,21 @@ public class UsuariosDAO implements IUsuario{
         }
         return usuarioEncontrado;
     }
-	public boolean guardarUsuario(String _username, String _clave, int _privilegio)
+	public boolean guardarUsuario(int id,String _username, String _clave, int _privilegio)
 	   {
 	      try
 	      {
 	         con = (Connection) UConnection.getConnection();
 	         
-	         String sql = "INSERT INTO CLIENTES(username, clave, privilegio) VALUES(?,?,?)";
+	         
+	         
+	         String sql = "INSERT INTO usuario(ID ,username, clave, privilegio) VALUES(?,?,?,?)";
 	         
 	         pstm = (PreparedStatement) con.prepareStatement(sql);
-	         
-	         pstm.setString(1,_username);
-	         pstm.setString(2,_clave);
-	         pstm.setInt(3,_privilegio);
+	         pstm.setInt(1,id );
+	         pstm.setString(2,_username);
+	         pstm.setString(3,_clave);
+	         pstm.setInt(4,_privilegio);
 	         	         
 	         if(pstm.executeUpdate()==1)
 	         {

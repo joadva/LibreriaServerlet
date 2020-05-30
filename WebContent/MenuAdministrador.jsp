@@ -52,7 +52,7 @@ body,td,th {
   </tr>
   <tr align="center">
     <td colspan="2">
-      <h4><a href="Mostrarusuarios.jsp">Consultar Usuarios</a> | <a href="libros.jsp">Nuevo Cliente</a> | <a href="SCerrarSesion">Cerrar Sesion</a> </h4></td>
+      <h4><a href="MostrarLibros.jsp">Consultar Libros</a> |<h4><a href="Mostrarusuarios.jsp">Consultar Usuarios</a> | <a href="libros.jsp">Nuevo Cliente</a> | <a href="SCerrarSesion">Cerrar Sesion</a> </h4></td>
   </tr>
   <tr>
     <td colspan="2">&nbsp;</td>

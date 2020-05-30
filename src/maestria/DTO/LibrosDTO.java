@@ -12,6 +12,7 @@ public class LibrosDTO implements Serializable {
 	private int id;
 	private String name;
 	private String año;
+	private String autor;
 	private String editorial;
 	
 	
@@ -33,6 +34,12 @@ public class LibrosDTO implements Serializable {
 	}
 	public void setAño(String año) {
 		this.año = año;
+	}
+	public String getAutor() {
+		return autor;
+	}
+	public void setAutor(String autor) {
+		this.autor = autor;
 	}
 	public String getEditorial() {
 		return editorial;

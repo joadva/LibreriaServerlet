@@ -17,12 +17,13 @@ if (sesion.getAttribute("usuario") == null) {
 
 
 
-<%-- Obtener Vector de Productos de la BD --%>
+<%-- Obtener Vector de Libros de la BD --%>
 
     <%
-       		ILibros d=(ILibros) Fabrica.getInstancia("libro");
+    ILibros d = (ILibros)  Fabrica.getInstancia("LIBROS");
+    
+    //ILibros d=(ILibros) Fabrica.getInstancia("libro");
 			Collection<LibrosDTO> resultado= d.buscarTodosLosLibros();
-			
     %>
 
 <html>
@@ -47,7 +48,7 @@ if (sesion.getAttribute("usuario") == null) {
 		<nav class="navbar navbar-expand-md navbar-dark"
 			style="background-color: tomato">
 			<div>
-				<h1> crud Usuarios</h1>
+				<h1> crud Libros</h1>
 			</div>
 
 			<ul class="navbar-nav">
@@ -62,20 +63,21 @@ if (sesion.getAttribute("usuario") == null) {
 		<!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
 
 		<div class="container">
-			<h3 class="text-center">Lista de Usuarios </h3>
+			<h3 class="text-center">Lista de Libros </h3>
 			<hr>
 			<div class="container text-left">
 
-				<a href="<%=request.getContextPath()%>/new" class="btn btn-success">agrega nuevo usuario</a>
+				<a href="<%=request.getContextPath()%>/new" class="btn btn-success">agrega nuevo libros</a>
 			</div>
 			<br>
 			<table class="table table-bordered">
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>UserName</th>
-						<th>Clave</th>
-						<th>Privilegio</th>
+						<th>Name</th>
+						<th>Año</th>
+						<th>Autor</th>
+						<th>editorial</th>
 					
 					</tr>
 				</thead>
@@ -92,16 +94,17 @@ if (sesion.getAttribute("usuario") == null) {
             <td align="right" valign="top"><%=registro.getId() %></td>
             <td align="right" valign="top"><%=registro.getName() %></td>
              <td align="right" valign="top"><%=registro.getAño() %></td>
-             <td align="right" valign="top"><%=registro.getEditorial() %></td>
+              <td align="right" valign="top"><%=registro.getAutor() %></td>
+             <td align="right" valign="top"><%=registro.getEditorial()%></td>
            
              <td>
              
-               <a type="button"  data-target="#myModal" data-toggle="modal"  value='<%=registro.getId() %>' />">Editar</a>
+               <a type="button"  data-target="#myModal" data-toggle="modal"  value='<%=registro.getId() %>'">Editar</a>
               
                
                <input  type="hidden"  name="action"  value="delete"  />
              
-					<a type="button" onclick="eliminar(<%=registro.getId() %>)"  >Eliminar</a>
+					<a type="button" onclick="eliminar('<%=registro.getId()%>','2')">Eliminar</a>
 		
 					</td>
 						</tr>            

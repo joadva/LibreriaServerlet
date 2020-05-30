@@ -41,14 +41,18 @@ public class SVerificaUsuario extends HttpServlet {
     	        System.out.println(action);
 			   if(action.equals("create")){
 				   
-				 String rfc=request.getParameter("rfc");
-    	         String nombre=request.getParameter("nombre");
-				 ICliente d=(ICliente) Fabrica.getInstancia("CLIENTE");
-   				 if(d.guardarCliente(rfc, nombre)==true){
-					 response.sendRedirect("MenuCliente.jsp");
-				 }else{
-					 response.sendRedirect("error.html");
-				 }
+				 int id=Integer.parseInt(request.getParameter("id"));
+				 System.out.println(id); 
+    	         String username=request.getParameter("username");
+    	         String clave=request.getParameter("clave");
+    	        int privilegio=Integer.parseInt(request.getParameter("prioridad"));
+				 IUsuario d=(IUsuario) Fabrica.getInstancia("USUARIOS"); 
+   				 if(d.guardarUsuario(id, username, clave, privilegio)==true){
+   					response.setStatus(HttpServletResponse.SC_OK);
+   	        		
+    	        	}else {
+    	        		response.sendRedirect("error.html");
+    	        	}
 					 
 			   }else if(action.equals("delete")){
 				   

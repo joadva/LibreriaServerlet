@@ -66,7 +66,7 @@ if (sesion.getAttribute("usuario") == null) {
 			<hr>
 			<div class="container text-left">
 
-				<a href="<%=request.getContextPath()%>/new" class="btn btn-success">agrega nuevo usuario</a>
+				<a href="AgregarUser.jsp" class="btn btn-success">agrega nuevo usuario</a>
 			</div>
 			<br>
 			<table class="table table-bordered">
@@ -96,12 +96,12 @@ if (sesion.getAttribute("usuario") == null) {
            
              <td>
              
-               <a type="button"  data-target="#myModal" data-toggle="modal"  value='<%=registro.getID() %>' />">Editar</a>
+               <a type="button"  data-target="#myModal" data-toggle="modal"  value='<%=registro.getID() %>' />Editar</a>
               
                
                <input  type="hidden"  name="action"  value="delete"  />
              
-					<a type="button" onclick="eliminar(<%=registro.getID() %>)"  >Eliminar</a>
+					<a type="button" onclick="eliminar(<%=registro.getID() %>,1)"  >Eliminar</a>
 		
 					</td>
 						</tr>            
@@ -127,22 +127,20 @@ if (sesion.getAttribute("usuario") == null) {
         
         <!-- Modal body -->
         <div class="modal-body">
-          <form name="" method="POST">
-          
-          
-          <input   type="text"  value="">
-                    <input   type="text" value="">
-          
-                    <input   type="text" value="">
-          
-                    <input   type="text"  value="">
-          
-          
-          
-          
-          
-          
-          </form>
+         <form class="form-inline" id="agregar" name="agregar">
+    <label >Id:</label>
+    <input type="text" class="form-control" id="id" placeholder="" name="id">
+    <label >Username:</label>
+    <input type="text" class="form-control" id="username" placeholder="" name="username">
+    <label >Clave:</label>
+    <input type="text" class="form-control" id="clave" placeholder="" name="clave">
+    <label for="pwd">Prioridad:</label>
+    <input type="text" class="form-control" id="prioridad" placeholder="" name="prioridad">
+    <div class="form-check">
+      
+    </div>
+    <button type="button" class="btn btn-primary" onclick="Update()" >Submit</button>
+  </form>
         </div>
         
         <!-- Modal footer -->
